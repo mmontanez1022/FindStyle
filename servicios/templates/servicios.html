@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <div class="row col-md-6 offset-md-3">
+        <h1 class="text-center display-3 py-5">Servicios</h1>
+        <ul class="list-group">
+            {% for servicio in servicios %}
+            <a class="list-group-item" href="{% url 'servicio_detail' servicio.id %}">
+                <header class="d-flex justify-content-between">
+                    {% if servicio.important %}
+                    <h1 class="fw-bold text-success">{{servicio.title}}</h1>
+                    
+                    {% else %}
+                    <h1 class="fw-bold">{{servicio.title}}</h1>
+                    {% endif %}
+                    <p>{{servicio.user.username}}</p>
+                    
+                </header>
+                
+                <p>{{servicio.description}}</p>
+                <p>{{ servicio.created|date:"M j Y H:i" }}</p>
+                    
+                
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+</main>
+
+{% endblock %}
+
+
+
+

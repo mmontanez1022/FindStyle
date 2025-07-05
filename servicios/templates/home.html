@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<main class="container py-5">
+    <section class="card card-body">
+    <h1 class="display-1 text-center">FindStyle</h1>
+<p>Acariciame
+Con manos locas enloqueceme
+Con uñas y sonrisas amamame
+Amor de amar, amor de piel.
+Acariciame
+Y ahogame en tus brazos
+Cuidame
+Y matame despacio
+Mirame
+No ves que estoy, muriendome.
+Acariciame
+Tan suave como el aire amor
+Tan fuerte como el huracan
+Que ciega mi mente.
+Acariciame
+Y empapame de tu ternura amor
+Contagiame de esa locura
+Que hay en tu vientre.
+Acariciame
+Y robame como un dia amante amor
+Dominame como un amante
+Despacio, constante.
+Acariciame
+Que estoy al rojo vivo
+Tomame
+Que soy todo latidos
+Toda piel
+Y se feliz teniendome.
+Acariciame
+Tan suave como el aire amor
+Tan fuerte como el huracan
+Que ciega mi mente.
+Acariciame
+Y empapame de tu ternura amor
+Contagiame de esa locura
+Que hay en tu vientre.
+Acariciame
+Tan suave como el aire amor
+Tan fuerte como el huracan
+Que ciega mi mente.
+Acariciame
+No tengas miedo a hacerme daño amor
+Contagiame de esa locura
+Que hay en tu vientre
+Acariciame.</p>
+
+
+{% if user.is_authenticated %}
+<div class="text-center">
+    <a class="btn btn-primary" href="/servicios/add">
+    Empieza a chambear!
+    </a>
+</div>
+{% else %}
+<div class="text-center">
+    <a class="btn btn-primary" href="/signin/">
+    Empieza a chambear!
+    </a>
+
+</div>
+{% endif %}
+
+</section>
+</main>
+
+{% endblock %}
