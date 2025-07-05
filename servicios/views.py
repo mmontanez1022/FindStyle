@@ -51,7 +51,7 @@ def add_servicios(request):
         })
     else:
         try:
-            form = ServiciosForm(request.POST)
+            form = ServiciosForm(request.POST, request.FILES)
             new_servicio = form.save(commit=False)
             new_servicio.user = request.user
             new_servicio.save() #se guarda xd

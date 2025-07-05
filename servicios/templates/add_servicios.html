@@ -4,7 +4,7 @@
 <main class="container">
     <div class="row">
         <div class="col-md-4 offset-md-4 mt-5">
-            <form action="/servicios/add/" method="POST" class="card card-body">
+            <form action="/servicios/add/" method="POST" class="card card-body" enctype="multipart/form-data">
                 <h1>Agregar Servicio</h1>
                 {{error}}
                 {% csrf_token %}

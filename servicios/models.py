@@ -9,6 +9,7 @@ class Servicios(models.Model): #1,05
     datecompleted = models.DateTimeField(null=True, blank=True)
     important = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='imagenes_productos/', null=True, blank=True)
     
     def __str__(self):
         return self.title + '- by ' + self.user.username
