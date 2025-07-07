@@ -73,7 +73,7 @@ def servicio_detail(request, servicio_id):
     else:
         try:
             servicio = get_object_or_404(Servicios, pk=servicio_id, user=request.user)
-            form = ServiciosForm(request.POST, instance=servicio)
+            form = ServiciosForm(request.POST, request.FILES, instance=servicio)
             form.save()
             return redirect('servicios')
         except ValueError:
