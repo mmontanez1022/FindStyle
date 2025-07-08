@@ -1,35 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<main class="container">
-    <div class="row col-md-6 offset-md-3">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'FindStyleApp/css/estilos.css' %}">
+    <title>Perfil</title>
+</head>
+<body>
+    <main class="container" >
+    <div class="row col-md-6 offset-md-3" id="catalogo">
         <h1 class="text-center display-3 py-5">Servicios</h1>
-        <ul class="list-group">
+        <div class="list-group" ><!--fotos-->
             {% for servicio in servicios %}
-            <a class="list-group-item" href="{% url 'servicio_detail' servicio.id %}">
+            <a class="list-group-item" href="{% url 'servicio_detail' servicio.id %}"><!--foto-->
                 <header class="d-flex justify-content-between">
-                    {% if servicio.important %}
-                    <h1 class="fw-bold text-success">{{servicio.title}}</h1>
-                    
-                    {% else %}
-                    <h1 class="fw-bold">{{servicio.title}}</h1>
-                    {% endif %}
+                    <h3 class="fw-bold">{{servicio.title}}</h3>
                     <p>{{servicio.user.username}}</p>
                     
                 </header>
-                
-                <p>{{servicio.description}}</p>
-                <p>{{ servicio.created|date:"M j Y " }}</p>
+                <p >{{servicio.precio}}</p>
                 {% if servicio.imagen %}
-                    <img src="{{ servicio.imagen.url }}" alt="Imagen del producto" width="200">
+                    <img src="{{ servicio.imagen.url }}" alt="Imagen del producto" class="list-group-item" style="height: 10rem;">
                 {% endif %}
-                    
+                    <p>{{ servicio.created|date:"M j Y " }}</p>
                 
             </a>
             {% endfor %}
-        </ul>
+        </div>
     </div>
 </main>
+</body>
+</html>
 
 {% endblock %}
 
